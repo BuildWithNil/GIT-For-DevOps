@@ -1,81 +1,141 @@
-# Git Commands
 
-## 1. Initialization
-- **Create a new Git repository**:
-  
-  `git init`
+# 📘 Git Commands Cheat Sheet
 
-## 2. Configuration
-- **Set global username**:
-  
-  `git config --global user.name "LondheShubham153"`
+Git is a distributed version control system widely used in DevOps and software development. This guide includes essential Git commands with examples.
 
-- **Set global email**:
-  
-  `git config --global user.email "shubhamnath5@gmail.com"`
+---
 
-## 3. File Operations
-- **Create a new file**:
-  
-  `touch <filename>`
+## 🔧 Configuration
 
-- **Remove a file**:
-  
-  `rm <filename>`
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --list         # View all config settings
+```
 
-- **Restore a deleted file**:
-  
-  `git restore <filename>`
+---
 
-## 4. Staging and Commit
-- **Check the status of the repository**:
-  
-  `git status`
+## 📁 Repository Setup
 
-- **Add a file to the staging area**:
-  
-  `git add <filename>`
+```bash
+git init                  # Initialize a new Git repository
+git clone <repo_url>      # Clone an existing repo
+```
 
-- **Commit changes with a message**:
-  
-  `git commit -m "your commit message"`
+---
 
-## 5. Branching
-- **Create a new branch**:
-  
-  `git checkout -b <branch_name>`
+## 📄 Basic Snapshotting
 
-- **Switch between branches**:
-  
-  `git checkout <branch_name>`
+```bash
+git status                # Check the status of working directory and staging area
+git add <file>            # Add file to staging area
+git add .                 # Add all changes to staging
+git commit -m "Message"   # Commit staged changes
+```
 
-- **List all branches**:
-  
-  `git branch`
+---
 
-## 6. Logs
-- **View commit history**:
-  
-  `git log`
+## 🔄 Branching & Merging
 
-- **View concise commit history**:
-  
-  `git log --oneline`
+```bash
+git branch                # List all branches
+git branch <name>         # Create a new branch
+git checkout <name>       # Switch to a branch
+git checkout -b <name>    # Create and switch to a new branch
+git merge <branch>        # Merge a branch into the current one
+```
 
-## 7. Remove from Staging
-- **Unstage a file (remove from index but keep in working directory)**:
-  
-  `git rm --cached <filename>`
+---
 
-## 8. Miscellaneous
-- **View all files, including hidden ones**:
-  
-  `ls -a`
+## 🔁 Remote Repositories
 
-- **Clear terminal screen**:
-  
-  `clear`
+```bash
+git remote -v                                # View remote URLs
+git remote add origin <repo_url>             # Add a remote repo
+git push -u origin main                      # Push local 'main' branch to remote
+git push                                     # Push changes
+git pull                                     # Pull changes from remote
+git fetch                                    # Fetch latest changes
+```
 
-- **View command history**:
-  
-  `history`
+---
+
+## 🕓 Commit History
+
+```bash
+git log                                      # View commit history
+git log --oneline                            # One-line commit summary
+```
+
+---
+
+## 🛠 Undoing Changes
+
+```bash
+git restore <file>                           # Discard changes in working directory
+git reset <file>                             # Unstage a file
+git reset --hard                             # Discard all changes and reset to last commit
+```
+
+---
+
+## 🔍 Stashing
+
+```bash
+git stash                                    # Stash current changes
+git stash list                               # List stashes
+git stash apply                              # Re-apply the last stash
+```
+
+---
+
+## ❌ Remove Remote Link
+
+```bash
+git remote remove origin                     # Remove remote URL
+```
+
+---
+
+## 📤 GitHub First Push (New Repo)
+
+```bash
+echo "# MyProject" >> README.md
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/username/repo.git
+git push -u origin main
+```
+
+---
+
+## 📌 Git Tags
+
+```bash
+git tag v1.0                                 # Create tag
+git tag                                      # List tags
+git push origin v1.0                         # Push specific tag
+```
+
+---
+
+## 🧹 Clean Up
+
+```bash
+git clean -n                                 # Show files to be removed
+git clean -f                                 # Force remove untracked files
+```
+
+---
+
+## 📚 Helpful Tips
+
+- `.gitignore`: List files/folders to be ignored by Git.
+- Always commit small, meaningful changes.
+- Use branches for feature development.
+- Keep `main` or `master` branch stable.
+
+---
+
